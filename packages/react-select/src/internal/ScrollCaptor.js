@@ -27,6 +27,7 @@ class ScrollCaptor extends Component<CaptorProps> {
   startListening(el: HTMLElement) {
     // bail early if no element is available to attach to
     if (!el) return;
+    if (el.scrollHeight <= el.clientHeight) return;
 
     // all the if statements are to appease Flow 😢
     if (typeof el.addEventListener === 'function') {
@@ -41,6 +42,7 @@ class ScrollCaptor extends Component<CaptorProps> {
   }
   stopListening(el: HTMLElement) {
     if (!el) return;
+    if (el.scrollHeight <= el.clientHeight) return;
 
     // all the if statements are to appease Flow 😢
     if (typeof el.removeEventListener === 'function') {
@@ -59,12 +61,8 @@ class ScrollCaptor extends Component<CaptorProps> {
     event.stopPropagation();
   };
   handleEventDelta = (event: SyntheticEvent<HTMLElement>, delta: number) => {
-    const {
-      onBottomArrive,
-      onBottomLeave,
-      onTopArrive,
-      onTopLeave,
-    } = this.props;
+    const { onBottomArrive, onBottomLeave, onTopArrive, onTopLeave } =
+      this.props;
     const { scrollTop, scrollHeight, clientHeight } = this.scrollTarget;
     const target = this.scrollTarget;
     const isDeltaPositive = delta > 0;
