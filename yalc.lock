@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "react-select": {
+      "signature": "4fa8b13937c85baff097a3c23086ccd1",
+      "file": true
+    }
+  }
+}
