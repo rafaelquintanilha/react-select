@@ -1,5 +1,112 @@
 # react-select
 
+## 5.0.0-beta.0
+
+### Major Changes
+
+- [ef87c3ac](https://github.com/JedWatson/react-select/commit/ef87c3ac7fd453800595eebebb85f1107f78d34c) [#4489](https://github.com/JedWatson/react-select/pull/4489) Thanks [@Methuselah96](https://github.com/Methuselah96)! - React-Select has been converted from Flow to TypeScript.
+
+  Other changes for v5 include usage of `forwardRef`, new hooks for `stateManager`, `async` and `creatable` components, and more reliable filtering implementaion with new options in the creatable variant.
+
+- [#4625](https://github.com/JedWatson/react-select/pull/4625) Thanks [@ebonow](https://github.com/ebonow)! - Remove dependency on AutoSizeInput
+  - BREAKING CHANGES:
+    - IE11 no longer works as it does not fully support CSS grid
+    - Renaming the .prefix\_\_input now targets the input and NOT the container. Unfortunate but overdue and perhaps opens the door to completely decoupling the input from needing a container if autosizing is not important.
+
+### Patch Changes
+
+- [4b028829](https://github.com/JedWatson/react-select/commit/4b028829721bcd9014d70ee8dce1efbaf6373cd0) [#4634](https://github.com/JedWatson/react-select/pull/4634) - The readonly attribute has been removed from the DummyInput to improve accessibility
+
+---
+
+## 4.3.1
+
+### Patch Changes
+
+- [2c915d10](https://github.com/JedWatson/react-select/commit/2c915d10b5ce7b7f48aa0903fa838f9c294c434d) [#4577](https://github.com/JedWatson/react-select/pull/4577) - Bump @emotion/cache to v11.4.0 which fixes an issue where different versions of Emotion running at the same time causes styles to disappear in production.
+
+## 4.3.0
+
+### Minor Changes
+
+- [035294f4](https://github.com/JedWatson/react-select/commit/035294f457921423c9237861f7c73584bdecbcc4) [#3360](https://github.com/JedWatson/react-select/pull/3360) Thanks [@JedWatson](https://github.com/JedWatson)! - Now pass the focusedOption to the MenuList Component as a prop
+
+### Patch Changes
+
+- [7a414a7c](https://github.com/JedWatson/react-select/commit/7a414a7c7a1f8e2902e43bd476e3db17a8dce049) [#3262](https://github.com/JedWatson/react-select/pull/3262) Thanks [@JedWatson](https://github.com/JedWatson)! - The Menu bottom is no longer scrolled into view when menuShouldScrollIntoView=false
+
+## 4.2.1
+
+### Patch Changes
+
+- [ca3c41bb](https://github.com/JedWatson/react-select/commit/ca3c41bb55e2666589bbbb69d1153357191d07a4) [#4478](https://github.com/JedWatson/react-select/pull/4478) Thanks [@ebonow](https://github.com/ebonow)! - Check passive events polyfill for the existence of window for SSR
+
+## 4.2.0
+
+### Minor Changes
+
+- [2ffed9c6](https://github.com/JedWatson/react-select/commit/2ffed9c6c40c9d5b81d7c8faf7bfc995976299ec) [#4444](https://github.com/JedWatson/react-select/pull/4444) Thanks [@Rall3n](https://github.com/Rall3n)! - Use accessor props to get value and label in `compareOption`
+
+- [2baf5a9d](https://github.com/JedWatson/react-select/commit/2baf5a9df2f4f56f9c9374fcb879cb5259a6d8d0) [#4414](https://github.com/JedWatson/react-select/pull/4414) Thanks [@ebonow](https://github.com/ebonow)! - Add ariaLiveMessages prop for internationalization and other customizations
+
+- [7cdb8a6b](https://github.com/JedWatson/react-select/commit/7cdb8a6b4d9de89a599b3aee8b6d90a44a931ea6) [#4391](https://github.com/JedWatson/react-select/pull/4391) Thanks [@ebonow](https://github.com/ebonow)! - Pass and sanitize CommonProps passed to Group and Input components
+
+### Patch Changes
+
+- [c955415c](https://github.com/JedWatson/react-select/commit/c955415cd3724489423dd8e84d6dab5ace24c984) [#4437](https://github.com/JedWatson/react-select/pull/4437) Thanks [@ebonow](https://github.com/ebonow)! - Set event listeners to be non-passive to remove Chrome console warnings
+
+- [3ca22b2f](https://github.com/JedWatson/react-select/commit/3ca22b2f49ad4f05f98ec8a565d74c483c0b98aa) [#3827](https://github.com/JedWatson/react-select/pull/3827) Thanks [@mitchellhamilton](https://github.com/mitchellhamilton)! - Memoize stripDiacritics in createFilter for the input with memoize-one so that stripDiacritics is not called for the same string as many times as there are options every time the input changes
+
+  Inspired by https://blog.johnnyreilly.com/2019/04/react-select-with-less-typing-lag.html
+
+- [dce3863f](https://github.com/JedWatson/react-select/commit/dce3863ff2ba8dfb50f505d81a2e70cf2d7a97e7) [#4423](https://github.com/JedWatson/react-select/pull/4423) Thanks [@Methuselah96](https://github.com/Methuselah96)! - Remove browser alias fields in order to fix SSR apps
+
+- [ec7c0728](https://github.com/JedWatson/react-select/commit/ec7c0728c5bfe98a81ab557699147ae244f7a073) [#4443](https://github.com/JedWatson/react-select/pull/4443) Thanks [@ebonow](https://github.com/ebonow)! - Allow tabIndex prop Type to be number or string
+
+## 4.1.0
+
+### Minor Changes
+
+- [b5f9b0c5](https://github.com/JedWatson/react-select/commit/b5f9b0c59d7ac8559f88287ba73f0495b4c8eed2) [#4342](https://github.com/JedWatson/react-select/pull/4342) Thanks [@Methuselah96](https://github.com/Methuselah96)! - Standardized innerProps and className props on customizable components
+
+- [19b76342](https://github.com/JedWatson/react-select/commit/19b763428d6df254f0b9662f18a698dd3c59d83b) [#3911](https://github.com/JedWatson/react-select/pull/3911) Thanks [@eugenet8k](https://github.com/eugenet8k)! - Add `removedValues` to `onChange` event meta when the action is `clear` (when the user clears the value in the Select)
+
+### Patch Changes
+
+- [f600d13f](https://github.com/JedWatson/react-select/commit/f600d13f5981c9e54e78247fdd82f62555373cff) [#4422](https://github.com/JedWatson/react-select/pull/4422) Thanks [@Methuselah96](https://github.com/Methuselah96)! - Fix finding focusable options for groups
+
+- [a016c878](https://github.com/JedWatson/react-select/commit/a016c87821d9289ef9c317c0c397d64a0824ce16) [#4420](https://github.com/JedWatson/react-select/pull/4420) Thanks [@Methuselah96](https://github.com/Methuselah96)! - Bump dependency on @babel/runtime in order to fix compatibility issues with Webpack 5
+
+- [10b5f5a5](https://github.com/JedWatson/react-select/commit/10b5f5a5edc93becb6b46f22666305ec8c1b7de3) [#4404](https://github.com/JedWatson/react-select/pull/4404) Thanks [@Methuselah96](https://github.com/Methuselah96)! - Remove unnecessary dependency on @emotion/css
+
+## 4.0.2
+
+### Patch Changes
+
+- [44f285b0](https://github.com/JedWatson/react-select/commit/44f285b0d4a50e16713b9aa3746d73d80dee2c91) [#4399](https://github.com/JedWatson/react-select/pull/4399) Thanks [@Methuselah96](https://github.com/Methuselah96)! - Fixed building focusable options from groups
+
+## 4.0.1
+
+### Patch Changes
+
+- [645feb3e](https://github.com/JedWatson/react-select/commit/645feb3e34776a5f181b32f603027df5ca709b7d) [#4396](https://github.com/JedWatson/react-select/pull/4396) Thanks [@Methuselah96](https://github.com/Methuselah96)! - Fixed keys for options within groups
+
+## 4.0.0
+
+### Major Changes
+
+- [02050675](https://github.com/JedWatson/react-select/commit/020506755728f607a77145e2a00458526596496f) [#4339](https://github.com/JedWatson/react-select/pull/4339) Thanks [@Methuselah96](https://github.com/Methuselah96)! - Standardized value passed to onChange
+
+- [26b6325c](https://github.com/JedWatson/react-select/commit/26b6325c95113591e568451bc2296f98318a8dd9) [#4283](https://github.com/JedWatson/react-select/pull/4283) Thanks [@majgaard](https://github.com/majgaard)! - Upgrades Emotion dependency to v11.0.0
+
+  BREAKING CHANGE: The NonceProvider component now requires a `cacheKey` prop that corresponds to the `key` for the Emotion cache.
+
+- [b2488bb5](https://github.com/JedWatson/react-select/commit/b2488bb561ed08c822bc1a828d2d9fd957f25bdf) [#4313](https://github.com/JedWatson/react-select/pull/4313) Thanks [@Methuselah96](https://github.com/Methuselah96)! - Removed usages of UNSAFE React methods
+
+### Patch Changes
+
+- [2d5496d5](https://github.com/JedWatson/react-select/commit/2d5496d52b6650b57352a0ea0dfcab383567f3ac) [#4388](https://github.com/JedWatson/react-select/pull/4388) Thanks [@Methuselah96](https://github.com/Methuselah96)! - Removed memoization of buildMenuOptions
+
 ## 3.2.0
 
 ### Minor Changes
